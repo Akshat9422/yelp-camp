@@ -2,9 +2,7 @@ const mongoose = require("mongoose");
 const cities = require("./cities");
 const { places, descriptors } = require("./seedHelpers");
 const Campground = require("../models/campground");
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
+require("dotenv").config();
 
 const DB_URL = process.env.MONGO;
 mongoose.set("strictQuery", false);
