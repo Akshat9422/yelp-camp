@@ -42,7 +42,17 @@ app.use(
   })
 );
 
+// const session = require('express-session');
+const MongoStore = require("connect-mongo");
+
+const store = new MongoStore({
+  mongoUrl: DB_URL,
+  secret: "thisshouldbeabettersecret!",
+  touchAfter: 24 * 60 * 60,
+});
+
 const sessionConfig = {
+  store,
   secret: "thisshouldbeabettersecret!",
   resave: false,
   saveUninitialized: true,
